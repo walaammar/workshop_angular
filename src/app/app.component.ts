@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'workshopangular';
+  t=4;
+ list=["a","b","c","d","e","f"];
 }
