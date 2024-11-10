@@ -1,0 +1,50 @@
+<form [formGroup]="utilisateurForm" (ngSubmit)="onSave()">
+    <!-- Nom Field -->
+    <div>
+      <label for="nom">Nom :</label>
+      <input id="nom" formControlName="nom" placeholder="Entrez le nom">
+      <div *ngIf="utilisateurForm.get('nom')?.invalid && utilisateurForm.get('nom')?.touched">
+        <small>Le nom est requis.</small>
+      </div>
+    </div>
+  
+    <!-- Prenom Field -->
+    <div>
+      <label for="prenom">Prénom :</label>
+      <input id="prenom" formControlName="prenom" placeholder="Entrez le prénom">
+      <div *ngIf="utilisateurForm.get('prenom')?.invalid && utilisateurForm.get('prenom')?.touched">
+        <small>Le prénom est requis.</small>
+      </div>
+    </div>
+  
+    <!-- Adresse Group -->
+    <div formGroupName="adresse">
+      <h4>Adresse</h4>
+      <label for="rue">Rue :</label>
+      <input id="rue" formControlName="rue" placeholder="Entrez la rue">
+      
+      <label for="codePostal">Code Postal :</label>
+      <input id="codePostal" formControlName="codePostal" placeholder="Entrez le code postal">
+      
+      <label for="ville">Ville :</label>
+      <input id="ville" formControlName="ville" placeholder="Entrez la ville">
+    </div>
+  
+    <!-- Skills Array -->
+    <div formArrayName="skills">
+      <h4>Skills</h4>
+      <div *ngFor="let skill of skills.controls; let i = index">
+        <input [formControlName]="i" placeholder="Entrez une compétence">
+        <button type="button" (click)="removeSkill(i)" *ngIf="skills.length > 1">Supprimer</button>
+        <div *ngIf="skill.invalid && skill.touched">
+          <small>Au moins une compétence est requise.</small>
+        </div>
+      </div>
+      <button type="button" (click)="addSkill()">Ajouter une autre compétence</button>
+    </div>
+  
+    <!-- Save and Reset Buttons -->
+    <button type="submit" [disabled]="utilisateurForm.invalid">Enregistrer</button>
+    <button type="button" (click)="onReset()">Réinitialiser</button>
+  </form>
+  

@@ -1,0 +1,70 @@
+<form [formGroup]="productForm" (ngSubmit)="onSave()">
+    <!-- Champ pour le nom du produit -->
+    <div>
+      <label for="name">Nom :</label>
+      <input id="name" formControlName="name" placeholder="Entrez le nom du produit">
+      <div *ngIf="productForm.get('name')?.errors && productForm.get('name')?.touched">
+        <small *ngIf="productForm.get('name')?.errors?.['required']">Le nom est requis.</small>
+        <small *ngIf="productForm.get('name')?.errors?.['minlength']">Minimum de 5 caractères.</small>
+        <small *ngIf="productForm.get('name')?.errors?.['pattern']">Seulement des lettres sont autorisées.</small>
+      </div>
+    </div>
+    
+    <!-- Champ pour l'image (URL) -->
+    <div>
+      <label for="image">URL de l'image :</label>
+      <input id="image" formControlName="image" placeholder="Entrez l'URL de l'image">
+    </div>
+  
+    <!-- Champ pour la catégorie -->
+    <div>
+      <label for="categoryId">ID de Catégorie :</label>
+      <input id="categoryId" formControlName="categoryId" placeholder="Entrez l'ID de catégorie">
+      <div *ngIf="productForm.get('categoryId')?.errors && productForm.get('categoryId')?.touched">
+        <small>L'ID de catégorie est requis.</small>
+      </div>
+    </div>
+  
+    <!-- Champ pour la description -->
+    <div>
+      <label for="description">Description :</label>
+      <textarea id="description" formControlName="description" placeholder="Entrez la description du produit"></textarea>
+    </div>
+  
+    <!-- Champ pour la marque -->
+    <div>
+      <label for="brand">Marque :</label>
+      <input id="brand" formControlName="brand" placeholder="Entrez la marque du produit">
+    </div>
+  
+    <!-- Champ pour le prix -->
+    <div>
+      <label for="price">Prix :</label>
+      <input id="price" formControlName="price" placeholder="Entrez le prix">
+      <div *ngIf="productForm.get('price')?.errors && productForm.get('price')?.touched">
+        <small *ngIf="productForm.get('price')?.errors?.['required']">Le prix est requis.</small>
+        <small *ngIf="productForm.get('price')?.errors?.['pattern']">Seuls les nombres sont autorisés.</small>
+      </div>
+    </div>
+  
+    <!-- Champ pour la promotion -->
+    <div>
+      <label for="promotion">Promotion :</label>
+      <input id="promotion" formControlName="promotion" placeholder="Entrez la promotion">
+      <div *ngIf="productForm.get('promotion')?.errors && productForm.get('promotion')?.touched">
+        <small *ngIf="productForm.get('promotion')?.errors?.['pattern']">La promotion doit être ≤ 100.</small>
+      </div>
+    </div>
+  
+    <!-- Bouton Enregistrer -->
+    <button type="submit" [disabled]="productForm.invalid">Enregistrer</button>
+  </form>
+  
+  <!-- Affichage des produits -->
+  <h2>Liste des Produits</h2>
+  <ul>
+    <li *ngFor="let product of products">
+      {{ product.name }} - {{ product.price }} €
+    </li>
+  </ul>
+  

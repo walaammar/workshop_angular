@@ -14,6 +14,9 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { ProductsCategoryComponent } from './products-category/products-category.component';
 import { DetailsCategoryComponent } from './details-category/details-category.component';
 import { AddCategoryComponent } from './add-category/add-category.component';
+import { FormProductComponent } from './form-product/form-product.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TestComponent } from './test/test.component';
 
 
 @NgModule({
@@ -28,12 +31,16 @@ import { AddCategoryComponent } from './add-category/add-category.component';
     NotfoundComponent,
     ProductsCategoryComponent,
     DetailsCategoryComponent,
-    AddCategoryComponent
+    AddCategoryComponent,
+    FormProductComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
