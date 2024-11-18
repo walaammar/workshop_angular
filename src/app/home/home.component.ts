@@ -12,8 +12,9 @@ export class HomeComponent {
 constructor(private Route:Router){}
   goToCategories(){
     this.Route.navigate(['/categories'])
-
    }
+
+
   //  goToFom(){
   //   this.Route.navigate(['/addCatecory'])
 

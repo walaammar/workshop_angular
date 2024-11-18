@@ -17,6 +17,7 @@ import { AddCategoryComponent } from './add-category/add-category.component';
 import { FormProductComponent } from './form-product/form-product.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TestComponent } from './test/test.component';
+import { CardComponent } from './card/card.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { TestComponent } from './test/test.component';
     DetailsCategoryComponent,
     AddCategoryComponent,
     FormProductComponent,
-    TestComponent
+    TestComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

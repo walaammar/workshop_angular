@@ -1,7 +1,5 @@
 <app-header></app-header>
 <router-outlet></router-outlet>
-<button routerLink="/Add Product">Add Product</button>
-<button routerLink="/test">ADD user</button>
-<app-footer></app-footer>
+<app-footer [received]="mFp" (env)="getValueFromCh($event)"></app-footer>
 
 

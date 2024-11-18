@@ -2,7 +2,7 @@
     <input type="text" [(ngModel)]="titre" placeholder="Rechercher par titre">
     <div class="row">
         <div class="col-md-4" style="margin-bottom: 20px" *ngFor="let cat of categories">
-            <div *ngIf="!titre || (cat.title.toLowerCase() === titre.toLowerCase())">
+            <!-- <div *ngIf="!titre || (cat.title.toLowerCase() === titre.toLowerCase())">
                 <img
                     [src]="cat.image"
                     [alt]="cat.title"
@@ -19,8 +19,9 @@
                 </button>  
                 <router-outlet></router-outlet>
                 <ng-template #alt><p style="color:red">Categorie non disponible</p></ng-template>
-           
+            -->
+                <app-card [category]="cat"></app-card>
+
             </div>
         </div>
     </div>
-</div>

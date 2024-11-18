@@ -21,7 +21,7 @@ export class TestComponent {
         ville: ['']
       }),
       skills: this.fb.array([
-        this.fb.control('', Validators.required)  // At least one skill is required
+        this.fb.control('', Validators.required)  
       ])
     });
   }
@@ -44,13 +44,11 @@ export class TestComponent {
     if (this.utilisateurForm.valid) {
       const utilisateur = this.utilisateurForm.value as Utilisateur;
       console.log("Saved User Data:", Utilisateur);
-      // Add save logic here if needed
     }
   }
 
   onReset(): void {
     this.utilisateurForm.reset();
-    // Ensure at least one skill input is present after reset
     this.skills.clear();
     this.addSkill();
   }
